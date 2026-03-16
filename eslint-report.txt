@@ -1,0 +1,52 @@
+﻿
+C:\Users\51360\Desktop\Gemini\InfiType\src\components\canvas\ClientOnly.tsx
+  9:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\51360\Desktop\Gemini\InfiType\src\components\canvas\ClientOnly.tsx:9:5
+   7 |
+   8 |   useEffect(() => {
+>  9 |     setHasMounted(true);
+     |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  10 |   }, []);
+  11 |
+  12 |   if (!hasMounted) {  react-hooks/set-state-in-effect
+
+C:\Users\51360\Desktop\Gemini\InfiType\src\components\nodes\ImageNode.tsx
+  99:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\51360\Desktop\Gemini\InfiType\src\components\nodes\PptNode.tsx
+  76:22  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\51360\Desktop\Gemini\InfiType\src\components\nodes\TextNode.tsx
+  12:7  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\51360\Desktop\Gemini\InfiType\src\components\nodes\TextNode.tsx:12:7
+  10 |   useEffect(() => {
+  11 |     if (data.text !== undefined && data.text !== text) {
+> 12 |       setText(data.text);
+     |       ^^^^^^^ Avoid calling setState() directly within an effect
+  13 |     }
+  14 |   }, [data.text]);
+  15 |  react-hooks/set-state-in-effect
+  14:6  warning  React Hook useEffect has a missing dependency: 'text'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             react-hooks/exhaustive-deps
+
+C:\Users\51360\Desktop\Gemini\InfiType\src\components\ui\CanvasDock.tsx
+  11:66  warning  'updateNodeData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\51360\Desktop\Gemini\InfiType\src\components\ui\ImageViewer.tsx
+  28:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+鉁?7 problems (2 errors, 5 warnings)
+

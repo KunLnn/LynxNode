@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "reactflow/dist/style.css";
+
+:root {
+  --background: #fafafa;
+  --foreground: #222222;
+  --node-bg: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111111;
+    --foreground: #eeeeee;
+    --node-bg: #1a1a1a;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.canvas-pan-mode .react-flow__pane {
+  cursor: grab;
+}
+
+.canvas-pan-mode .react-flow__pane.dragging {
+  cursor: grabbing;
+}
+
+.canvas-select-mode .react-flow__pane {
+  cursor: default;
+}
+
+.canvas-select-mode .react-flow__node {
+  cursor: move;
+}
+
+.canvas-interacting .react-flow__node {
+  transition: none !important;
+  filter: none !important;
+}
+
+.canvas-interacting .react-flow__node * {
+  transition: none !important;
+}
+
+.canvas-interacting .react-flow__node > div {
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.canvas-interacting .react-flow__edge,
+.canvas-interacting .react-flow__handle,
+.canvas-interacting .react-flow__selection,
+.canvas-interacting .react-flow__nodesselection {
+  transition: none !important;
+}
+
+.text-node-editor ol,
+.text-node-editor ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.text-node-editor ol {
+  counter-reset: text-node-ol;
+}
+
+.text-node-editor ol > li,
+.text-node-editor ul > li {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.text-node-editor ol > li {
+  counter-increment: text-node-ol;
+}
+
+.text-node-editor ol > li::before,
+.text-node-editor ul > li::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--marker-color, inherit);
+  font-family: var(--marker-font-family, inherit);
+  font-size: var(--marker-font-size, 1em);
+  font-weight: var(--marker-font-weight, inherit);
+  font-style: var(--marker-font-style, inherit);
+  line-height: inherit;
+}
+
+.text-node-editor ol > li::before {
+  content: counter(text-node-ol) ".";
+}
+
+.text-node-editor ul > li::before {
+  content: "\2022";
+}
+
+/* React Flow custom minimal theme */
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background-color: #a0a0a0;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.react-flow__node:hover .react-flow__handle,
+.react-flow__node.selected .react-flow__handle {
+  opacity: 1;
+}
+
+.react-flow__edge-path {
+  stroke: #cccccc;
+  stroke-width: 1.5;
+}
+@media (prefers-color-scheme: dark) {
+  .react-flow__edge-path {
+    stroke: #444444;
+  }
+}
