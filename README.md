@@ -1,6 +1,27 @@
 # LynxNode
 
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![React](https://img.shields.io/badge/React-19-149eca)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6)
+![License](https://img.shields.io/badge/License-Private-lightgrey)
+
 LynxNode is a node-based infinite canvas built with Next.js, React Flow, and Zustand. It is designed for visual thinking and presentation building: you can place text blocks, image nodes, and PPT nodes on a freeform canvas, connect them together, and generate slide content from linked materials.
+
+## At a Glance
+
+- Visual canvas for text, image, and presentation workflows
+- Built for ideation, content structuring, and slide generation
+- Supports optional AI writing and image-processing integrations
+- Keeps state locally in the browser for a fast, backend-free workflow
+
+## Quick Start
+
+```bash
+npm install
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000).
 
 ## Features
 
@@ -29,6 +50,10 @@ Example layout:
 ![PPT Generation](./docs/screenshots/ppt-generation.gif)
 ```
 
+## Why LynxNode
+
+LynxNode is aimed at people who want more than a plain note editor and less than a heavy presentation suite. The canvas model makes it easier to think spatially, connect source material, and turn loose ideas into structured output.
+
 ## Tech Stack
 
 - Next.js 16
@@ -54,6 +79,14 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### 3. Optional AI setup
+
+Open `AI Engine Settings` inside the app if you want to enable:
+
+- LLM-assisted writing
+- Image upscaling
+- Background removal
 
 ## How It Works
 
@@ -113,6 +146,21 @@ public/
   fonts/               Optional local font assets
 ```
 
+## Current Scope
+
+What this project already does well:
+
+- Freeform visual canvas editing
+- Rich text authoring
+- Image node workflows
+- Slide generation from connected node content
+
+What is still evolving:
+
+- End-to-end polished PPT export workflow
+- Template asset packaging strategy
+- README demo assets and public-facing documentation
+
 ## Notes
 
 - `public/ppt-templates` and `public/fonts` currently keep directory structure only. Add your own assets there if your workflow depends on local templates or custom fonts.
@@ -131,6 +179,12 @@ public/
 ## Contributing
 
 Issues and pull requests are welcome. If you plan to extend the node system or AI workflows, keeping UI behavior and persisted state backward-compatible will make collaboration much smoother.
+
+## Development Notes
+
+- The app uses local browser persistence instead of a remote database.
+- `public/fonts` and `public/ppt-templates` are intentionally kept as empty tracked directories.
+- Some node behavior depends on optional third-party APIs, so local testing may vary depending on configured keys.
 
 ## Scripts
 
